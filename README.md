@@ -1,27 +1,32 @@
-# CPPOSClient
+# Medical Appointment System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+A web application for managing patient appointments, prescriptions, and sending reports via email. Built with Angular and .NET 8 Web API.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Schedule and manage patient appointments with doctors  
+- Add and manage prescriptions with medicine details  
+- Generate PDF reports for prescriptions  
+- Send prescription reports to patients via email  
+- Search and filter appointments by patient or doctor  
+- Responsive UI using Ng-Zorro components  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Tech Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Frontend:** Angular 17, TypeScript, Ng-Zorro UI  
+- **Backend:** .NET 8 Web API, C#  
+- **Database:** SQL Server  
+- **PDF generation:** pdfMake  
+- **Email Sending:** Gmail SMTP (with App Password)  
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Setup Instructions
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clone the repository:  
+```bash
+git clone https://github.com/mahabub775/MASClient.git
