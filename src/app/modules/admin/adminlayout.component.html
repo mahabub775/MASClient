@@ -1,0 +1,71 @@
+<nz-layout>
+  <nz-sider nzCollapsible   nzTheme="light" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" [nzBreakpoint]="'md'" (nzCollapsedChange)="onCollapseChange($event)">
+    <div class="logo text-center">Medical Appointment System</div>
+    <ul nz-menu nzMode="inline">
+      <ng-container *ngFor="let menu of menus">
+        <li nz-submenu 
+            [nzTitle]="menu.title" 
+            [nzIcon]="menu.icon" 
+            [nzOpen]="menu.isOpen">
+          <ul>
+            <li *ngFor="let item of menu.items" 
+                nz-menu-item 
+                [nzSelected]="selectedMenu === item.route" 
+                (click)="setSelected(item.route, menu)">
+              <a [routerLink]="item.route">
+                <i nz-icon [nzType]="item.icon"></i> {{ item.label }}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ng-container>
+    </ul>
+  </nz-sider>
+ 
+    <nz-layout>
+      <nz-header >
+        <div nz-row>
+          <div nz-col nzSpan="12">
+            <span 
+            class="trigger"
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            (click)="isCollapsed = !isCollapsed"
+          ></span>
+          </div>
+          <div nz-col nzSpan="12" class="header">
+            <nz-button-group >
+              <button nz-button>{{username}}</button>
+              <button nz-button nz-dropdown [nzDropdownMenu]="menu2" nzPlacement="bottomRight">
+                <span nz-icon nzType="user"></span>
+              </button>
+            </nz-button-group >
+            <nz-dropdown-menu #menu2="nzDropdownMenu" >
+              <ul nz-menu>
+                <li nz-menu-item ><a (click)="changePassword()" > <i nz-icon nzType="edit" ></i> Change Password</a></li>
+                <li nz-menu-item><a (click)="Logout()" > <i nz-icon nzType="logout" ></i> Log Out </a></li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
+
+        </div>    
+      </nz-header>
+      <nz-content>
+        
+        <nz-breadcrumb>
+          <nz-breadcrumb-item *ngFor="let breadcrumb of breadcrumbs">{{ breadcrumb }}</nz-breadcrumb-item>
+        </nz-breadcrumb>
+
+        <div class="inner-content">
+
+          
+          <router-outlet></router-outlet> 
+        </div>
+      </nz-content>
+      <!-- <nz-footer>Copy Rights  ©2025 Implement By BinarySoft</nz-footer> -->
+    </nz-layout>
+  </nz-layout>
+
+
+
+  

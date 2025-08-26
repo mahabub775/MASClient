@@ -1,0 +1,104 @@
+<form   [formGroup]="AppointmentForm"  (ngSubmit)="onSubmit()"  >
+    <h2 class="text-2xl font-bold mb-3 text-center">Appointment Entry</h2>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2">
+
+  <div class="flex items-center space-x-1">
+    <label class="w-1/4 text-sm font-medium text-gray-700 text-right">
+      Patient <label class="mandatorystar">*</label> :
+    </label>
+    <nz-select formControlName="patientId" name="patientId" [nzShowArrow]="true" [nzShowSearch]="true" style="width:73%;">
+      <nz-option *ngFor="let patient of Patients" [nzValue]="patient.id" [nzLabel]="patient.name"></nz-option>
+    </nz-select>
+  </div>
+
+  <div class="flex items-center space-x-2">
+    <label class="w-1/4 text-sm font-medium text-gray-700 text-right">
+      Doctor <label class="mandatorystar">*</label> :
+    </label>
+    <nz-select formControlName="doctorId" name="doctorId" [nzShowArrow]="true" [nzShowSearch]="true" style="width:73%;">
+      <nz-option *ngFor="let doctor of Doctors" [nzValue]="doctor.id" [nzLabel]="doctor.name"></nz-option>
+    </nz-select>
+  </div>
+
+</div>
+
+
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2">
+
+  <div class="flex items-center space-x-1">
+    <label for="appointmentDate" class="w-1/4 text-sm font-medium text-gray-700 text-right">  Appointment Date <label class="mandatorystar">*</label> :    </label>
+    <input      type="date"      id="appointmentDate"      formControlName="appointmentDate"      class="flex-1 px-4 py-2 h-8 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"    />
+  </div>
+
+
+<div class="flex items-center space-x-2">
+  <label class="w-1/4 text-sm font-medium text-gray-700 text-right">
+    Visit Type <label class="mandatorystar">*</label> :
+  </label>
+
+  <div class="flex flex-1 items-center space-x-4">
+
+    <label class="flex items-center space-x-1">
+      <input        type="radio"        formControlName="visitType"        [value]="true"        class="text-blue-600 focus:ring-blue-500" />   <span>First</span>
+    </label>
+
+
+    <label class="flex items-center space-x-1">
+      <input        type="radio"        formControlName="visitType"        [value]="false"        class="text-blue-600 focus:ring-blue-500"     />      <span>Follow-up</span>
+    </label>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+  <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 mb-2"> 
+    <div class="flex items-center space-x-2">
+      <label class="w-1/7 text-sm font-medium text-gray-700 text-right">Notes :</label>
+      <input type="text" id="note" formControlName="note"     class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"placeholder="Enter note"/>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 mb-2"> 
+    <div class="flex items-center space-x-2">
+      <label class="w-1/7 text-sm font-medium text-gray-700 text-right">Diagnosis :</label>
+      <textarea id="diagnosis" formControlName="diagnosis" rows="2"
+        class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Enter Diagnosis"></textarea>
+    </div>
+  </div>
+
+
+
+
+
+<nz-spin [nzSpinning]="isLoading">
+</nz-spin>
+<form [formGroup]="PrescriptionDetailForm" (ngSubmit)="SaveDetail()">
+    <div class="col-span-2   ">
+      <button   type="submit"class="px-4 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"  >Add Prescription Row</button>
+    </div>
+
+</form>
+
+
+
+<div class="content mt-3"> 
+  <ag-grid-angular id="agGrid" class="ag-theme-alpine"   [rowData]="rowDataDetail"   rowSelection="single"  [columnDefs]="colDefs"   (selectionChanged)="onSelectionChanged($event)" (cellValueChanged)="onCellValueChanged($event)"  [defaultColDef]="defaultColDef" 
+  (gridReady)="onGridReady($event)"   class="ag-theme-alpine"   [paginationPageSizeSelector]="false" [gridOptions]="gridOptions"   [domLayout]="domLayout"   [animateRows]="true">
+</ag-grid-angular>
+</div>
+
+
+
+
+  <div class="mt-6 flex justify-end space-x-4">
+     <button *ngIf="mode === 'new' || mode === 'edit'" type="submit"   class="px-6 py-1.5 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">{{ mode === 'edit' ? 'Update' : 'Save' }}</button>
+     <button type="button" class="px-6 py-1.5 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500" (click)="onClose()"   >      Close    </button>
+  </div>
+</form>

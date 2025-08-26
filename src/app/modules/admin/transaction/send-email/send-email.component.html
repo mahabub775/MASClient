@@ -1,0 +1,31 @@
+<div class="p-4">
+  <h2 class="text-lg font-bold">Send Prescription to Patient</h2>
+
+  <form (ngSubmit)="sendEmail()" enctype="multipart/form-data">
+    <div class="mb-2">
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="email.toEmail" name="toEmail" class="border p-2 w-full" required />
+    </div>
+
+    <div class="mb-2">
+      <label>Subject:</label>
+      <input type="text" [(ngModel)]="email.subject" name="subject" class="border p-2 w-full" required />
+    </div>
+
+    <div class="mb-2">
+      <label>Message:</label>
+      <textarea [(ngModel)]="email.body" name="body" rows="4" class="border p-2 w-full"></textarea>
+    </div>
+
+    <div class="mb-2">
+      <label>Attach Report:</label>
+      <input type="file" (change)="onFileSelected($event)" />
+    </div>
+
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+      Send Email
+    </button>
+  </form>
+
+  <p *ngIf="message" class="mt-2">{{message}}</p>
+</div>

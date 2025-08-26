@@ -1,0 +1,47 @@
+<nz-card>
+
+  <div nz-row [nzGutter]="16">
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" [nzFlex]="'40%'" class="formcontrol">
+      <label class="label">Search:</label>
+      <input type="text" nz-input [(ngModel)]="searchmodel.patientordoctor" style="width:72%; min-width:100px;"  (keyup.enter)="Search()" />
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" [nzFlex]="'20%'" class="formcontrol">
+        <button class="px-6 py-1.5 bg-blue-500 text-white rounded-md" (click)="New()">Add Appointment</button>
+    </div>
+    
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" [nzFlex]="'20%'" class="formcontrol"></div>
+
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" [nzFlex]="'20%'" class="formcontrol"></div>
+  </div>
+
+
+
+  <div class="content mt-3">
+    <ag-grid-angular
+      id="agGrid"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      rowSelection="single"
+      [columnDefs]="colDefs"
+      (selectionChanged)="onSelectionChanged($event)"
+      [defaultColDef]="defaultColDef"
+      (gridReady)="onGridReady($event)"
+      [paginationPageSizeSelector]="false"
+      [domLayout]="domLayout"
+      [animateRows]="true">
+    </ag-grid-angular>
+
+    <div class="pagination-container">
+      <div class="pagination-info">
+        Showing {{ startRecord }} to {{ endRecord }} of {{ totalRecords }} records
+      </div>
+      <nz-pagination
+        [nzTotal]="totalRecords"
+        [nzPageSize]="pageSize"
+        [(nzPageIndex)]="pageIndex"
+        (nzPageIndexChange)="Search()"
+        (nzPageSizeChange)="Search()">
+      </nz-pagination>
+    </div>
+  </div>
+</nz-card>
