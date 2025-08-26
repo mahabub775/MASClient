@@ -283,11 +283,11 @@ getValidationMessage(field: string, type: string): string {
   public colDefs: ColDef[] = [
       {valueGetter: "node.rowIndex + 1", headerName: 'SL', cellStyle: { 'border-right': '0.5px solid silver' }, width: 60, editable: false, filter: false},
        { field: 'medicinId', headerName: 'medicine Id', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'left'  } , width: 150, editable: false,  hide: true , headerClass: 'center-header'},
-      {    field: 'medicineName',      headerName: 'Medicine Name',      cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'left' },      width: 100,      editable: true,      headerClass: 'center-header',      cellEditor: MedicineDropdownEditorComponent,      cellEditorParams: { getMedicines: () => this.Medicines }    },
+      {    field: 'medicineName',      headerName: 'Medicine Name',      cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'left' },      width: 150,      editable: true,      headerClass: 'center-header',      cellEditor: MedicineDropdownEditorComponent,      cellEditorParams: { getMedicines: () => this.Medicines }    },
       { field: 'dosage', headerName: 'Dosage', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'left'  },editable: true,width: 150, headerClass: 'center-header' ,filter: false },
       
-       { field: 'startDateSt', headerName: 'Start Date', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'center'  } ,width: 130, headerClass: 'center-header', editable: true ,cellEditor:DatepickerEditorComponent ,filter: false  },
-       { field: 'endDateSt', headerName: 'End Date', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'center'  } ,width: 130, headerClass: 'center-header', editable: true ,cellEditor:DatepickerEditorComponent ,filter: false  },
+       { field: 'startDateSt', headerName: 'Start Date', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'center'  } ,width: 100, headerClass: 'center-header', editable: true ,cellEditor:DatepickerEditorComponent ,filter: false  },
+       { field: 'endDateSt', headerName: 'End Date', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'center'  } ,width: 100, headerClass: 'center-header', editable: true ,cellEditor:DatepickerEditorComponent ,filter: false  },
       
       { field: 'notes', headerName: 'Notes', cellStyle: { 'border-right': '0.5px solid silver' , 'text-align': 'left'   }, editable: true, width: 100,  headerClass: 'center-header',filter: false },
       
@@ -297,7 +297,7 @@ getValidationMessage(field: string, type: string): string {
           cellRenderer: AppointmentButtonRendererComponent,
           cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'center' },
           headerClass: 'center-header',
-          width:150,
+          width:100,
           filter: false
         }
   

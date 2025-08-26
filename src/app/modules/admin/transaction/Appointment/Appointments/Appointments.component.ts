@@ -114,8 +114,8 @@ public domLayout: 'normal' | 'autoHeight' | 'print' = 'autoHeight';
 
   public colDefs: ColDef[] = [
     { field: 'Sl', headerName: 'SL', cellStyle: { 'border-right': '0.5px solid silver' } ,  headerClass: 'center-header',  width: 10, editable: false, filter: false },
-    { field: 'PatientName', headerName: 'Patient', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'center'  }, width: 130,  headerClass: 'center-header', filter: false },
-    { field: 'DoctorName', headerName: 'Doctor', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'center'  } , width: 130,  headerClass: 'center-header'},
+    { field: 'PatientName', headerName: 'Patient', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'left'  }, width: 130,  headerClass: 'center-header', filter: false },
+    { field: 'DoctorName', headerName: 'Doctor', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'left'  } , width: 130,  headerClass: 'center-header'},
     { field: 'AppointmentDateSt', headerName: 'Date', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'center'  } , width:80,  headerClass: 'center-header', filter: false},
     { field: 'VisitTypeSt', headerName: 'Visit Type', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'left'  },width:80,   headerClass: 'center-header',autoHeight: true }, 
     { field: 'Diagnosis', headerName: 'Diagnosis', cellStyle: { 'border-right': '0.5px solid silver', 'text-align': 'left' }, width: 70,  headerClass: 'center-header',  filter: false},
